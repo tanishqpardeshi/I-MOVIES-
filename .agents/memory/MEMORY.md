@@ -1,0 +1,1 @@
+- [Movie poster source policy](movie-poster-source-policy.md) — use static verified poster overrides and a local fallback; avoid per-request image lookups.

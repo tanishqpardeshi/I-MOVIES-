@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   POPCORN CINEMA DESIGN SYSTEM — Warm, Modern, Friendly Light Cinema Theme
+   ========================================================================== */
+:root {
+  color-scheme: light;
+  --popcorn-red: #E63946;
+  --popcorn-red-hover: #D62839;
+  --popcorn-red-soft: #FDECEC;
+  --popcorn-yellow: #FFC93C;
+  --popcorn-yellow-hover: #E5B129;
+  --popcorn-yellow-soft: #FFF6DC;
+  --popcorn-cream: #FFF9F0;
+  --popcorn-cream-soft: #FDFBF7;
+  --popcorn-surface: #FFFFFF;
+  --popcorn-charcoal: #2B2B2B;
+  --popcorn-charcoal-dark: #1A1D20;
+  --popcorn-muted: #6B7280;
+  --popcorn-border: #EAE2D5;
+  --popcorn-border-subtle: #F0E9DD;
+  --popcorn-glass: rgba(255, 255, 255, 0.92);
+  --font-display: "Plus Jakarta Sans", "Space Grotesk", sans-serif;
+}
+
+@layer base {
+  html {
+    background-color: var(--popcorn-cream);
+    color: var(--popcorn-charcoal);
+  }
+
+  body {
+    background-color: var(--popcorn-cream);
+    color: var(--popcorn-charcoal);
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(255, 201, 60, 0.45);
+    color: var(--popcorn-charcoal-dark);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--popcorn-red);
+    outline-offset: 2px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   GLOBAL COMPATIBILITY OVERRIDES (Mapping Legacy Dark Surface Classes to Light)
+   Ensures seamless theme consistency across all screens without losing structure
+   -------------------------------------------------------------------------- */
+
+/* Base container / page background mappings */
+[class*="bg-[#0b0d11]"],
+[class*="bg-[#090b0e]"],
+[class*="bg-[#090b10]"],
+[class*="bg-[#080a0f]"],
+[class*="bg-[#0a0c10]"],
+[class*="bg-[#0a0d14]"],
+[class*="bg-[#0a0d13]"],
+[class*="bg-[#0b0e14]"],
+[class*="bg-[#0b0e15]"],
+[class*="bg-[#0b0d12]"],
+[class*="bg-[#0c0e14]"],
+[class*="bg-[#0d1016]"],
+[class*="bg-[#0d1017]"],
+[class*="bg-[#0e121a]"],
+[class*="bg-[#0e1118]"],
+[class*="bg-[#10131a]"],
+[class*="bg-[#10131b]"],
+[class*="bg-[#11141c]"],
+[class*="bg-[#0B0F19]"] {
+  background-color: var(--popcorn-cream) !important;
+}
+
+/* Card / elevated container mappings */
+[class*="bg-[#12151d]"],
+[class*="bg-[#12151f]"],
+[class*="bg-[#131620]"],
+[class*="bg-[#131722]"],
+[class*="bg-[#141822]"],
+[class*="bg-[#141824]"],
+[class*="bg-[#141722]"],
+[class*="bg-[#151926]"],
+[class*="bg-[#161b26]"],
+[class*="bg-[#161a24]"],
+[class*="bg-[#161a25]"],
+[class*="bg-[#161922]"],
+[class*="bg-[#161a23]"],
+[class*="bg-[#171b26]"],
+[class*="bg-[#181c26]"],
+[class*="bg-[#181b22]"],
+[class*="bg-[#1a1d26]"],
+[class*="bg-[#1a1e28]"],
+[class*="bg-[#161C2A]"] {
+  background-color: var(--popcorn-surface) !important;
+}
+
+/* Active / hovered elements */
+[class*="bg-[#1c2230]"],
+[class*="bg-[#1d2332]"],
+[class*="bg-[#1f2431]"],
+[class*="bg-[#202534]"],
+[class*="bg-[#222734]"],
+[class*="bg-[#1E293B]"] {
+  background-color: var(--popcorn-yellow-soft) !important;
+}
+
+/* Header navbar background */
+header[class*="bg-"] {
+  background-color: var(--popcorn-glass) !important;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--popcorn-border) !important;
+}
+
+/* Text color transformations for high contrast */
+.text-white {
+  color: var(--popcorn-charcoal-dark) !important;
+}
+
+/* Buttons or badges with text-white that have colored backgrounds (red, etc.) */
+button.text-white,
+a.text-white,
+[class*="bg-red-"].text-white,
+[class*="bg-[#E63946]"].text-white,
+[class*="bg-popcorn-red"].text-white,
+[class*="bg-amber-500"].text-white,
+[class*="bg-emerald-"].text-white,
+[class*="bg-slate-900"].text-white,
+.btn-primary.text-white {
+  color: #FFFFFF !important;
+}
+
+/* Dark text utility */
+.text-slate-100 {
+  color: var(--popcorn-charcoal) !important;
+}
+
+.text-slate-200 {
+  color: #374151 !important;
+}
+
+.text-slate-300 {
+  color: #4B5563 !important;
+}
+
+.text-slate-400 {
+  color: var(--popcorn-muted) !important;
+}
+
+/* Border overrides */
+[class*="border-slate-800"],
+[class*="border-slate-700"] {
+  border-color: var(--popcorn-border) !important;
+}
+
+[class*="border-amber-500/15"],
+[class*="border-amber-500/20"],
+[class*="border-amber-500/25"],
+[class*="border-amber-500/30"] {
+  border-color: rgba(230, 57, 70, 0.2) !important;
+}
+
+/* Gradient card fixes: replace harsh dark gradients with clean light card surfaces */
+[class*="from-[#0d1017]"],
+[class*="from-[#12151d]"],
+[class*="from-[#141824]"],
+[class*="via-[#141924]"],
+[class*="via-[#151923]"],
+[class*="via-[#151924]"],
+[class*="via-[#161a25]"] {
+  background-image: none !important;
+  background-color: var(--popcorn-surface) !important;
+}
+
+/* Soft, clean card shadows */
+.card-popcorn {
+  background-color: var(--popcorn-surface);
+  border: 1px solid var(--popcorn-border);
+  box-shadow: 0 4px 14px rgba(43, 43, 43, 0.05), 0 1px 3px rgba(43, 43, 43, 0.03);
+  border-radius: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   THEATRE & SEAT SELECTION AUDITORIUM ELEMENTS (Popcorn Theme)
+   -------------------------------------------------------------------------- */
+
+/* Cinematic Curved Screen */
+.cinema-screen-vip,
+.cinema-screen {
+  height: 48px;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(255, 201, 60, 0.35), rgba(255, 246, 220, 0.05));
+  border-top: 4px solid var(--popcorn-red);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  position: relative;
+  box-shadow: 0 -4px 16px rgba(230, 57, 70, 0.15);
+}
+
+.cinema-screen-vip::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: var(--popcorn-yellow);
+  box-shadow: 0 0 10px rgba(255, 201, 60, 0.8);
+}
+
+/* Smooth Seat Transitions */
+.seat-vip {
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.seat-vip:not(:disabled):hover {
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 4px 8px rgba(230, 57, 70, 0.15);
+}
+
+/* Subtle Vignette in Screen Area */
+.cinema-vignette {
+  background-image: radial-gradient(circle at 50% 0%, rgba(255, 201, 60, 0.12) 0%, transparent 70%);
+}
+
+.border-gold-glow {
+  border-color: rgba(255, 201, 60, 0.5);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--popcorn-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DCD3C5;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C4B9A5;
+}

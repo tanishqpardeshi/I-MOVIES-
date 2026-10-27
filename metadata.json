@@ -1,0 +1,8 @@
+{
+  "name": "iMovies",
+  "description": "Streamlined movie ticket booking platform with real-time seat selection, showtimes, and digital passes.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
