@@ -77,10 +77,28 @@ async function start() {
       const { createServer: createViteServer } = require('vite');
       const vite = await createViteServer({
         server: { middlewareMode: true, host: '0.0.0.0', port: PORT },
-        appType: 'spa',
+        appType: 'custom',
         root: path.resolve(__dirname, 'client')
       });
       app.use(vite.middlewares);
+
+      app.use('*', async (req, res, next) => {
+        const url = req.originalUrl;
+        try {
+          const indexPath = path.resolve(__dirname, 'client/index.html');
+          if (fs.existsSync(indexPath)) {
+            let template = fs.readFileSync(indexPath, 'utf-8');
+            template = await vite.transformIndexHtml(url, template);
+            return res.status(200).set({ 'Content-Type': 'text/html' }).end(template);
+          }
+          next();
+        } catch (e) {
+          if (vite && typeof vite.ssrFixStacktrace === 'function') {
+            vite.ssrFixStacktrace(e);
+          }
+          next(e);
+        }
+      });
     } catch (err) {
       console.warn('[iMovies] Vite middleware error, trying static files:', err.message);
       if (fs.existsSync(clientDist)) {
